@@ -6,7 +6,7 @@ metadata:
 data:
   GIT_SYNC_BRANCH: master
   GIT_SYNC_DEST: build
-  GIT_SYNC_ONE_TIME: 'false'
+  GIT_SYNC_ONE_TIME: 'true'
   GIT_SYNC_REPO: 'https://github.com/vaddisrinivas/lowdefy-sample-build.git'
   GIT_SYNC_ROOT: /git
   GIT_SYNC_USERNAME: ''
