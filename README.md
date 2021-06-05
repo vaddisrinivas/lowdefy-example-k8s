@@ -33,6 +33,14 @@ Regardless of which of the above configs you are using, here is a very generic e
 - under container section we can alter the env variables, config paths etc.
 - in case of git-init/git-sync configs a volume local to pod is defined and shared between these containers.
 
+### pv.yaml
+This is the file which is used to create PersistentVolume.
+`this will work only if your host has build files available in "/data/lowdefy/build/" and if your k8s is running on that node.
+If you are running a multinode cluster, please modify this to local/nfs`
+The storageclass tells k8s how you want to provision a PV for your cluster/namespace/usecase. It depends on your infra/cluster .
+please refer [this link for more information](https://kubernetes.io/docs/concepts/storage/storage-classes/) and [this](https://kubernetes.io/docs/tasks/configure-pod-container/configure-persistent-volume-storage/)
+
+
 ### svc.yaml
 - While we use deploy.yaml to deploy the application, inorder to expose it to external world, 
   kubernetes allows us to either use ingress or to use NodePort.
