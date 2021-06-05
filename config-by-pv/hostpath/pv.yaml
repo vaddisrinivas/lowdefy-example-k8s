@@ -6,7 +6,7 @@ spec:
   capacity:
     storage: 5Gi
   hostPath:
-    path: /data/lowdfy/build
+    path: /data/lowdefy/build
   accessModes:
     - ReadWriteOnce
   persistentVolumeReclaimPolicy: Recycle
