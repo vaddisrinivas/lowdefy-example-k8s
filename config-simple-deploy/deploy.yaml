@@ -1,0 +1,43 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: lowdefy
+  namespace: default
+  labels:
+    app: lowdefy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: lowdefy
+  template:
+    metadata:
+      name: lowdefy
+      labels:
+        app: lowdefy
+    spec:
+      containers:
+        - name: lowdefy
+          image: imvegeta/img_lowdefy
+          ports:
+            - containerPort: 3000
+              protocol: TCP
+          env:
+            - name: LOWDEFY_SERVER_PORT
+              value: '3000'
+          imagePullPolicy: Always
+          securityContext:
+            privileged: false
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      securityContext: {}
+      schedulerName: default-scheduler
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 25%
+      maxSurge: 25%
+  revisionHistoryLimit: 10
+  progressDeadlineSeconds: 600
+

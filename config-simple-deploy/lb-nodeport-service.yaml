@@ -1,0 +1,16 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: lowdefy
+  labels:
+    app: lowdefy
+spec:
+  ports:
+    - name: 3000-3000
+      protocol: TCP
+      port: 3000
+      targetPort: 3000
+      nodePort: 30864
+  selector:
+    app: lowdefy
+  type: LoadBalancer
