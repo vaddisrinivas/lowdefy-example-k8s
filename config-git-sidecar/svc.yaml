@@ -1,9 +1,10 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: lowdefy
+  name: lowdefy-git-sync-example
+  namespace: default
   labels:
-    app: lowdefy
+    app: lowdefy-git-sync-example
 spec:
   ports:
     - name: 3000-3000
@@ -12,5 +13,7 @@ spec:
       targetPort: 3000
       nodePort: 30864
   selector:
-    app: lowdefy
+    app: lowdefy-git-sync-example
   type: LoadBalancer
+  sessionAffinity: None
+  externalTrafficPolicy: Cluster

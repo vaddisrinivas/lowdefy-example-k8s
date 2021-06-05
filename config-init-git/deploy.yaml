@@ -17,7 +17,7 @@ spec:
       volumes:
         - name: content-from-git
           emptyDir: {}
-      containers:
+      initContainers:
         - name: git-sync
           image: 'k8s.gcr.io/git-sync/git-sync:v3.2.2'
           envFrom:
@@ -30,6 +30,7 @@ spec:
             - name: content-from-git
               mountPath: /git
           imagePullPolicy: IfNotPresent
+      containers:
         - name: lowdefy
           image: imvegeta/img_lowdefy
           ports:

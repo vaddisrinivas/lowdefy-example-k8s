@@ -1,0 +1,14 @@
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: lowdefy-build-pv
+spec:
+  capacity:
+    storage: 5Gi
+  hostPath:
+    path: /data/lowdfy/build
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Recycle
+  storageClassName: manual
+  volumeMode: Filesystem
